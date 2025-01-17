@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cool Space Facts</title>
+    <style>
+        body {
+            background-color: #000; 
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            text-align: center; 
+        }
+        
+        .planets {
+            display: flex; 
+            justify-content: space-around;
+            margin-top: 50px; 
+        }
+        
+        .planet {
+            width: 100px; 
+            height: auto;
+            cursor: pointer; 
+        }
+        
+        #fact-display {
+            font-size: 1.2em;
+            margin-top: 30px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Explore the Cosmos!</h1>
+        <div id="fact-display">Click a planet to discover a space fact!</div>
+        <div class="planets">
+            <img src="planet1.png" alt="Planet 1" class="planet" data-planet-id="0"> 
+            <img src="planet2.png" alt="Planet 2" class="planet" data-planet-id="1"> 
+            <img src="planet3.png" alt="Planet 3" class="planet" data-planet-id="2">
+            </div>
+    </div>
+    <script>
+        const planets = document.querySelectorAll('.planet');
+        const factDisplay = document.getElementById('fact-display');
+        
+        const spaceFacts = [
+            {
+              "fact": "Space is completely silent.",
+              "description": "There is no air in space, which means there is no medium for sound waves to travel through."
+            },
+            {
+              "fact": "The footprints on the Moon will be there for millions of years.",
+              "description": "There's no wind or water to erode them away."
+            },
+            {
+              "fact": "One day on Venus is longer than one year on Earth.",
+              "description": "Venus rotates incredibly slowly, making its day longer than its orbital period around the Sun."
+            },
+            {
+              "fact": "There is a planet made of diamonds twice the size of Earth.",
+              "description": "This planet, 55 Cancri e, is thought to be made mostly of pure crystallized carbon."
+            },
+            {
+              "fact": "The Sun makes up 99.86% of the mass in our solar system.",
+              "description": "That means all the planets, moons, asteroids, and comets combined make up a tiny fraction of the solar system's total mass."
+            },
+            {
+              "fact": "You can fit all the planets in our solar system between the Earth and the Moon.",
+              "description": "(with a bit of room to spare!)"
+            },
+            {
+              "fact": "The largest known asteroid in our solar system is Ceres.",
+              "description": "It's so large it's classified as a dwarf planet and has its own gravity."
+            },
+            {
+              "fact": "A teaspoonful of neutron star would weigh billions of tons.",
+              "description": "Neutron stars are incredibly dense remnants of collapsed giant stars."
+            },
+            {
+              "fact": "If two pieces of the same type of metal touch in space, they will bond and be permanently stuck together.",
+              "description": "This is called cold welding."
+            },
+            {
+              "fact": "Sunset on Mars appears blue.",
+              "description": "The dust in the Martian atmosphere scatters light differently than on Earth, creating a blueish hue at sunset."
+            },
+            {
+              "fact": "The Milky Way galaxy is warped.",
+              "description": "Instead of being a flat disk, our galaxy is slightly bent, likely due to interactions with nearby galaxies."
+            },
+            {
+              "fact": "There are more stars in the universe than grains of sand on all the beaches on Earth.",
+              "description": "The universe is mind-bogglingly vast."
+            },
+            {
+              "fact": "Black holes aren't actually holes.",
+              "description": "They're regions of spacetime where gravity is so strong that nothing, not even light, can escape."
+            },
+            {
+              "fact": "We are all made of star stuff.",
+              "description": "The elements that make up our bodies were forged in the cores of stars that lived and died billions of years ago."
+            },
+            {
+              "fact": "Space is constantly expanding.",
+              "description": "The distance between galaxies is increasing all the time."
+            }
+          ];
+          
+        
+        planets.forEach(planet => {
+            planet.addEventListener('click', () => {
+                const randomIndex = Math.floor(Math.random() * spaceFacts.length);
+                const randomFact = spaceFacts[randomIndex];
+                factDisplay.textContent = randomFact.fact; 
+            });
+        });
+    </script>
+</body>
+</html>
+
