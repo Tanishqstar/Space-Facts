@@ -12,60 +12,160 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-image: url('space-background.jpg'); /* Add your image here */
-            background-size: cover; /* Cover the whole viewport */
-            background-position: center; /* Center the background image */
-            overflow: hidden; /* Prevent scrollbars if the image is too big */
+            overflow: hidden; 
         }
 
         .container {
-            text-align: center; 
-            position: relative; /* Allow positioning planets within the container */
-            z-index: 1; /* Make sure the container content is above the background */
+            text-align: center;
+            position: relative;
+            z-index: 1; 
         }
 
-        .planets {
-            display: flex; 
-            justify-content: space-around;
+        h1 {
             margin-top: 50px; 
-            width: 100%; /* Make planets occupy the full container width */
-            position: absolute;
-            bottom: 20px; /* Position planets at the bottom */
+            margin-bottom: 100px; /* Increased margin for spacing */
         }
 
-        .planet {
-            width: 80px; /* Adjust size as needed */
-            height: auto;
+        .space-element {
+            width: 80px; 
+            height: 80px;
+            border-radius: 50%; 
             cursor: pointer; 
-            transition: transform 0.2s ease; /* Add a smooth hover effect */
+            transition: transform 0.2s ease;
+            position: relative; 
+            overflow: hidden; 
+            background-color: #ffbb33;
+            box-shadow: 0 0 20px #ffbb33;
+            margin-left: auto; /* Center horizontally */
+            margin-right: auto; /* Center horizontally */
         }
 
-        .planet:hover {
-            transform: translateY(-10px); /* Move slightly up on hover */
+        .space-element:hover {
+            transform: translateY(-10px); 
         }
-        
+
+        .space-element::before { 
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%; 
+            height: 120%; 
+            border-radius: 50%; 
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.8), transparent 70%); 
+            filter: blur(10px);
+        }
+
+        #fact-container {
+            width: 600px; /* Adjust width as needed */
+            background-color: #fff;
+            color: #000; 
+            padding: 20px;
+            border: 3px solid #007bff; 
+            border-radius: 10px; 
+            margin-bottom: 50px; /* Spacing between rectangle and button */ 
+        }
+
         #fact-display {
             font-size: 1.2em;
-            margin-top: 30px; 
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
-            padding: 10px 20px;
-            border-radius: 5px;
+            text-align: center; 
+        }
+
+        /* Star Background - Increased number of stars */
+        body::before { 
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.8) 2px, transparent 2px),
+                radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+                radial-gradient(circle at 50% 10%, rgba(255, 182, 193, 0.3) 3px, transparent 3px), 
+                radial-gradient(circle at 10% 50%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+                radial-gradient(circle at 90% 60%, rgba(255, 182, 193, 0.2) 2px, transparent 2px),
+                radial-gradient(circle at 5% 70%, rgba(255, 255, 255, 0.7) 2px, transparent 2px), /* New star */
+                radial-gradient(circle at 95% 20%, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.8) 2px, transparent 2px),
+                radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+                radial-gradient(circle at 50% 10%, rgba(255, 182, 193, 0.3) 3px, transparent 3px), 
+                radial-gradient(circle at 10% 50%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+                radial-gradient(circle at 90% 60%, rgba(255, 182, 193, 0.2) 2px, transparent 2px),
+                radial-gradient(circle at 5% 70%, rgba(255, 255, 255, 0.7) 2px, transparent 2px), /* New star */
+                radial-gradient(circle at 95% 20%, rgba(255, 255, 255, 0.4) 1px, transparent 1px), 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.8) 2px, transparent 2px),
+                radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+                radial-gradient(circle at 50% 10%, rgba(255, 182, 193, 0.3) 3px, transparent 3px), 
+                radial-gradient(circle at 10% 50%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+                radial-gradient(circle at 90% 60%, rgba(255, 182, 193, 0.2) 2px, transparent 2px),
+                radial-gradient(circle at 5% 70%, rgba(255, 255, 255, 0.7) 2px, transparent 2px), /* New star */
+                radial-gradient(circle at 95% 20%, rgba(255, 255, 255, 0.4) 1px, transparent 1px),  /* New star */
+                /* ... Add more radial-gradient for more stars as needed ... */
+        }
+
+        /* Blinking Star Animation - Add this to your CSS */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; } 
+        }
+
+        .blinking-star {
+            animation: blink 1.5s infinite; /* Adjust duration (1.5s) as needed */
+        }
+
+        /* Apply blinking animation to some stars */
+        body::before {
+            /* ... your existing star styles ... */
+            background-image: 
+                /* ... your existing radial gradients ... */
+                radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.8) 3px, transparent 3px) blinking-star, /* Blinking star */
+                radial-gradient(circle at 25% 85%, rgba(255, 255, 255, 0.6) 2px, transparent 2px) blinking-star; /* Blinking star */
+                /* ... Add blinking-star to more radial gradients as needed... */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Explore the Cosmos!</h1>
-        <div id="fact-display">Click a planet to discover a space fact!</div>
-        <div class="planets">
-            <img src="planet1.png" alt="Planet 1" class="planet" data-planet-id="0"> 
-            <img src="planet2.png" alt="Planet 2" class="planet" data-planet-id="1"> 
-            <img src="planet3.png" alt="Planet 3" class="planet" data-planet-id="2">
-            </div>
+
+        <div id="fact-container">
+            <div id="fact-display"></div>
+        </div>
+
+        <div class="space-element" data-planet-id="0"></div>
     </div>
+
     <script>
-        // JavaScript code (same as before)
-        // ... 
+        const spaceElement = document.querySelector('.space-element');
+        const factDisplay = document.getElementById('fact-display');
+
+        const spaceFacts = [
+            {"fact": "Space is completely silent.", "description": "There is no air in space, which means there is no medium for sound waves to travel through."},
+            {"fact": "The footprints on the Moon will be there for millions of years.", "description": "There's no wind or water to erode them away."},
+            {"fact": "One day on Venus is longer than one year on Earth.", "description": "Venus rotates incredibly slowly, making its day longer than its orbital period around the Sun."},
+            {"fact": "There is a planet made of diamonds twice the size of Earth.", "description": "This planet, 55 Cancri e, is thought to be made mostly of pure crystallized carbon."},
+            {"fact": "The Sun makes up 99.86% of the mass in our solar system.", "description": "That means all the planets, moons, asteroids, and comets combined make up a tiny fraction of the solar system's total mass."},
+            {"fact": "You can fit all the planets in our solar system between the Earth and the Moon.", "description": "(with a bit of room to spare!)"},
+            {"fact": "The largest known asteroid in our solar system is Ceres.", "description": "It's so large it's classified as a dwarf planet and has its own gravity."},
+            {"fact": "A teaspoonful of neutron star would weigh billions of tons.", "description": "Neutron stars are incredibly dense remnants of collapsed giant stars."},
+            {"fact": "If two pieces of the same type of metal touch in space, they will bond and be permanently stuck together.", "description": "This is called cold welding."},
+            {"fact": "Sunset on Mars appears blue.", "description": "The dust in the Martian atmosphere scatters light differently than on Earth, creating a blueish hue at sunset."},
+            {"fact": "The Milky Way galaxy is warped.", "description": "Instead of being a flat disk, our galaxy is slightly bent, likely due to interactions with nearby galaxies."},
+            {"fact": "There are more stars in the universe than grains of sand on all the beaches on Earth.", "description": "The universe is mind-bogglingly vast."},
+            {"fact": "Black holes aren't actually holes.", "description": "They're regions of spacetime where gravity is so strong that nothing, not even light, can escape."},
+            {"fact": "We are all made of star stuff.", "description": "The elements that make up our bodies were forged in the cores of stars that lived and died billions of years ago."},
+            {"fact": "Space is constantly expanding.", "description": "The distance between galaxies is increasing all the time."}
+        ]; 
+
+        spaceElement.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * spaceFacts.length);
+            const randomFact = spaceFacts[randomIndex];
+            factDisplay.textContent = randomFact.fact; 
+        });
     </script>
 </body>
 </html>
